@@ -20,6 +20,6 @@ urlpatterns = [
     path('', IndexView.as_view(), name='index'),
     path('delete/', DeleteView.as_view(), name='delete'),
     path('edit/', EditView.as_view(), name='edit'),
-    path('<int:pk>/', ToDoView.as_view(), name='detail'),
+    path('<int:pk>/', ToDoView.as_view(), name='task'),
     path('create/', CreateView.as_view(), name='create')
 ]

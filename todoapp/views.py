@@ -6,7 +6,7 @@ from .models import task
 
 class IndexView(ListView):
     template_name = "index.html"
-    context_object_name = 'all_todos'
+    context_object_name = 'all_tasks'
     model = task
     
 class ToDoView(DetailView):
