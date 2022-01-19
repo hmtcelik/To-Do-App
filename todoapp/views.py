@@ -9,18 +9,22 @@ class IndexView(ListView):
     context_object_name = 'all_tasks'
     model = task
     
-class ToDoView(DetailView):
-    template_name = "ToDo.html"
+class TaskView(DetailView):
+    template_name = "task.html"
     model = task
 
 class EditView(UpdateView):
     template_name = "edit.html"
     model = task
-    
+    fields = '__all__'
+    success_url = reverse_lazy("index")
+        
 class CreateView(CreateView):
     template_name = "create.html"
     model = task
     fields = '__all__'
+    success_url = reverse_lazy("index")
+
     
 class DeleteView(DeleteView):
     template_name = "delete.html"

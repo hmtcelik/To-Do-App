@@ -1,6 +1,8 @@
-
-
-
-<h1>{{ ToDo.title }}</h1>
-
-<p>{{ ToDo.description}}</p>
+{% extends 'base.html' %}
+{% block title %}{{ task.title }}{% endblock %}
+{% block body %}
+    <h1>{{ task.title }}</h1>
+    <p>{{ task.description}}</p>
+    <a href="{% url 'edit' task.id %}" class="btn btn-primary">Edit</a>
+    <a href="{% url 'delete' task.id %}" class="btn btn-danger">Delete</a>
+{% endblock %}

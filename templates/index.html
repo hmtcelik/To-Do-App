@@ -1,14 +1,21 @@
 {% extends 'base.html' %}
 {% block title %}To Do{% endblock %}
 {% block body %}
-    <a href="{% url 'create' %}">Create New Task
+    <a href="{% url 'create' %}">Create New Task</a>
     
     {% if all_tasks%}
         {% for task in all_tasks %}
-            <li><a href="{% url 'task' task.id %}">{{ task.title }}</a></li>
+            <div class="card mt-3" style="width: 25rem;">
+                <div class="card-body">
+                    <h1><a href="{% url 'task' task.id %}">{{ task.title }}</a></h1>
+                    <p class="card-text">{{ task.description|truncatechars:50 }}</p>
+                    <a href="{% url 'edit' task.id %}" class="btn btn-primary">Edit</a>
+                    <a href="{% url 'delete' task.id %}" class="btn btn-danger">Delete</a>
+                </div>
+            </div>    
         {% endfor %}
     {% else %}
-        <p>There is no task yet</p>
+        <h3 style="margin-top:5px; padding: 13px 10px;">There is no task yet</h3>
     {% endif %}
 
 {% endblock %}
